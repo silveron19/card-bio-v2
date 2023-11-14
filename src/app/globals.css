@@ -1,0 +1,82 @@
+:root {
+  --primary: #e2e3e6;
+  --secondary: #413d39;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--primary);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 50%;
+  min-height: 50%;
+  padding: 1rem;
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background-color: #fff;
+  box-shadow: 10px 10px;
+}
+
+.bio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.img-container,
+.bio-data,
+.cta-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.bio-data {
+  flex-direction: column;
+}
+
+.cta,
+.input-name {
+  border-radius: 50px;
+  min-width: 80%;
+  padding: 0.8rem 0;
+  font-size: 1.125rem;
+}
+
+.cta {
+  background-color: var(--secondary);
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.input-name {
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  padding-left: 0.8rem;
+}
+
+.cta:hover {
+  background-color: #55504b;
+}
