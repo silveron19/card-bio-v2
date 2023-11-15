@@ -3,28 +3,18 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Home() {
-  const [index, setIndex] = useState(0);
-  const [quote, setQuote] = useState('Something missing...');
   const [name, setName] = useState('Silverter Kristian M.');
-
-  function handlerUpdateQuote() {
-    if (quote === 'Something missing...') {
-      setQuote("It's you >///<");
-    } else if (quote === "It's you >///<") {
-      setQuote(`Love you ${index}`);
-    } else {
-      setQuote(`Love you ${index + 1}`);
-      setIndex(index + 1);
-    }
-  }
+  const [value, setValue] = useState('');
 
   const handlerPressEnter = (event) => {
     if (event.key === 'Enter') {
-      handlerUpdateName(event);
+      handlerUpdateName();
     }
   };
+  const handlerOnClick = () => handlerUpdateName();
 
-  const handlerUpdateName = (event) => setName(event.target.value);
+  const handlerInputChange = (event) => setValue(event.target.value);
+  const handlerUpdateName = () => setName(value);
 
   return (
     <main className="container">
@@ -32,8 +22,8 @@ export default function Home() {
         <div className="bio">
           <div className="img-container">
             <Image
-              alt=""
-              src={'/assets/silver.svg'}
+              alt="Avatar"
+              src="/assets/silver.svg"
               width={200}
               height={200}
               priority={true}
@@ -43,7 +33,7 @@ export default function Home() {
             <h1>{name}</h1>
             <div style={{ marginTop: '0.5rem' }}>
               <p>D121211007</p>
-              <p>{quote}</p>
+              <p>Something missing...</p>
             </div>
           </div>
         </div>
@@ -51,16 +41,14 @@ export default function Home() {
           <input
             className="input-name"
             placeholder="Tuliskan namamu..."
-            onKeyDown={handlerPressEnter}
             type="text"
+            onKeyDown={handlerPressEnter}
+            onChange={handlerInputChange}
           />
         </div>
-        <div
-          className="cta-container"
-          style={{ margin: '1rem' }}
-          onClick={handlerUpdateQuote}>
-          <button type="button" className="cta">
-            Halo!
+        <div className="cta-container" style={{ margin: '1rem' }}>
+          <button type="button" className="cta" onClick={handlerOnClick}>
+            Simpan
           </button>
         </div>
       </div>
