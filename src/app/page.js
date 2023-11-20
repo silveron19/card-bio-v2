@@ -7,6 +7,7 @@ import '@components/navbar/navbar.js';
 export default function Home() {
   const [name, setName] = useState('Silverter Kristian M.');
   const [value, setValue] = useState('');
+  const [isEmpty, setIsEmpty] = useState(true);
 
   const handlerPressEnter = (event) => {
     if (event.key === 'Enter') {
@@ -15,12 +16,30 @@ export default function Home() {
   };
   const handlerOnClick = () => handlerUpdateName();
 
-  const handlerInputChange = (event) => setValue(event.target.value);
+  const handlerInputChange = (event) => {
+    const inputValue = event.target.value;
+    setValue(inputValue);
+    setIsEmpty(inputValue.trim() === '');
+  };
   const handlerUpdateName = () => {
     setName(value);
     setValue('');
   };
 
+  let content;
+  if (isEmpty) {
+    content = (
+      <button type="button" className="cta active">
+        Disabled
+      </button>
+    );
+  } else {
+    content = (
+      <button type="button" className="cta" onClick={handlerOnClick}>
+        Simpan
+      </button>
+    );
+  }
   return (
     <main className="home-container">
       <div className="card">
@@ -54,9 +73,7 @@ export default function Home() {
           />
         </div>
         <div className="cta-container" style={{ margin: '1rem' }}>
-          <button type="button" className="cta" onClick={handlerOnClick}>
-            Simpan
-          </button>
+          {content}
         </div>
       </div>
     </main>

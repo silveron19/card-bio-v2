@@ -38,7 +38,8 @@
 }
 
 .cta,
-.input-name {
+.input-name,
+.cta.active {
   border-radius: 50px;
   min-width: 80%;
   padding: 0.8rem 0;
@@ -60,4 +61,11 @@
 
 .cta:hover {
   background-color: #55504b;
+}
+
+.cta.active {
+  background-color: var(--primary);
+  color: var(--secondary);
+  cursor: no-drop;
+  font-weight: 700;
 }

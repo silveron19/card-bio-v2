@@ -35,7 +35,7 @@ function Diary() {
   if (loading) {
     content = <p>Loading...</p>;
   } else if (error) {
-    content = <p>Something went wrong!</p>;
+    content = <p>Oops! Something went wrong.</p>;
   } else {
     content = (
       <ul>
