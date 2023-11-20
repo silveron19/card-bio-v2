@@ -1,0 +1,35 @@
+:root {
+  --primary: #e2e3e6;
+  --secondary: #413d39;
+}
+
+.diary {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+}
+
+.diary li,
+.diary ul {
+  margin-top: 3rem;
+  padding: 1.4rem 28%;
+  width: 100%;
+  list-style: none;
+}
+
+.diary .diary-container {
+  text-align: center;
+  width: 100%;
+  background-color: var(--secondary);
+  color: var(--primary);
+  border-radius: 10px;
+  padding: 1.4rem 7%;
+  font-size: 1.125rem;
+}
+
+.diary .container h1 {
+  margin-bottom: 1rem;
+}

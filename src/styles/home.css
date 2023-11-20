@@ -1,23 +1,4 @@
-:root {
-  --primary: #e2e3e6;
-  --secondary: #413d39;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background-color: var(--primary);
-}
-
-.container {
+.home-container {
   width: 100vw;
   height: 100vh;
   display: flex;

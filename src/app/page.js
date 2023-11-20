@@ -1,6 +1,8 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
+import '@styles/home.css';
+import '@components/navbar/navbar.js';
 
 export default function Home() {
   const [name, setName] = useState('Silverter Kristian M.');
@@ -14,10 +16,13 @@ export default function Home() {
   const handlerOnClick = () => handlerUpdateName();
 
   const handlerInputChange = (event) => setValue(event.target.value);
-  const handlerUpdateName = () => setName(value);
+  const handlerUpdateName = () => {
+    setName(value);
+    setValue('');
+  };
 
   return (
-    <main className="container">
+    <main className="home-container">
       <div className="card">
         <div className="bio">
           <div className="img-container">
@@ -44,6 +49,8 @@ export default function Home() {
             type="text"
             onKeyDown={handlerPressEnter}
             onChange={handlerInputChange}
+            value={value}
+            maxLength={25}
           />
         </div>
         <div className="cta-container" style={{ margin: '1rem' }}>
